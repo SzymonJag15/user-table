@@ -1,0 +1,137 @@
+.modal-background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #dedede;
+}
+
+.app-modal {
+  max-width: 855px;
+  width: 95%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $modal-background;
+  box-shadow: 0px 0px 20px 6px rgb(202 202 202);
+  border-radius: 15px;
+  padding: 30px 10px 0;
+
+  @media (min-width: 768px) {
+    padding: 30px 60px 0;
+  }
+
+  @media (min-width: 992px) {
+    min-height: 450px;
+    display: flex;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 3px;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+
+    font-size: 18px;
+    color: #d1d2d5;
+    cursor: pointer;
+  }
+
+  &__circle {
+    position: absolute;
+    z-index: -1;
+
+    &--top {
+      top: 0;
+      left: 0;
+    }
+
+    &--bottom {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    grid-gap: 35px;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+
+    @media (min-width: 992px) {
+      align-items: center;
+      grid-gap: 5px;
+
+      img {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__image {
+    display: flex;
+
+    @media (min-width: 992px) {
+      min-width: 295px;
+    }
+  }
+
+  &__text-wrapper {
+    text-align: center;
+
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+
+    &__title {
+      font-size: 34px;
+      color: $text-color;
+      margin-bottom: 5px;
+
+      @media (min-width: 992px) {
+        font-size: 44px;
+      }
+    }
+
+    &__text {
+      font-size: 20px;
+      color: $text-color;
+      margin-bottom: 25px;
+
+      @media (min-width: 992px) {
+        font-size: 26px;
+      }
+    }
+
+    &__button {
+      font-size: 12px;
+      font-weight: 500;
+      color: $text-green;
+      background-color: $weathered-green;
+      border-radius: 50px;
+      border: none;
+      padding: 10px 35px;
+      cursor: pointer;
+    }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
