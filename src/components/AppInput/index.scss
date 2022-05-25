@@ -1,0 +1,17 @@
+.app-input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 12px;
+  background-color: #fff;
+  color: #000;
+  transition: .3s;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+    border-color: $weathered-green;
+  }
+}
