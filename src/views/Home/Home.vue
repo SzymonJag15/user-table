@@ -14,10 +14,11 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 import AppUiWrapper from "@/components/AppUiWrapper/AppUiWrapper.vue";
 import AppModal from "@/components/AppModal/AppModal.vue";
+import { getUsers } from "@/utils/users";
 
 import ModalImage from "@/assets/modal-image.png";
 
@@ -28,8 +29,14 @@ export default {
     AppModal,
   },
   setup() {
-    const visibleModal = ref(true);
+    const users = ref([]);
+    const visibleModal = ref(false);
     const toggleModal = () => (visibleModal.value = !visibleModal.value);
+
+    onMounted(async () => {
+      users.value = await getUsers();
+      console.log(users.value);
+    });
 
     return {
       visibleModal,
